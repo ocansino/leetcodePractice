@@ -1,14 +1,19 @@
 
-import java.util.Arrays;
+import java.util.*;
 
 class problems{
     public static void main(String[] args) {
         problems p = new problems();
-        int[] nums = { 1, 2, 3, 4};
+        //int[] nums = { 1, 2, 3, 4};
         //System.out.println(p.hasDuplicate(nums));
 
         String s = "jar", t = "jam";
-        System.out.println(p.isAnagram(s,t));
+        //System.out.println(p.isAnagram(s,t));
+
+        int[] nums = {5,5};
+        int target = 10;
+        System.out.println(Arrays.toString(p.twoSum(nums, target)));
+
     }
 
     public boolean hasDuplicate(int[] nums) {
@@ -43,5 +48,19 @@ class problems{
         }
         return true;
 
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+        int[]ans = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums.length; j++){
+                if(nums[i] + nums[j] == target && i != j){
+                    ans[0] = j;
+                    ans[1] = i;
+                    
+                }
+            }
+        }
+        return ans;
     }
 }
