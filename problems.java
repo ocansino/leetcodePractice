@@ -1,8 +1,14 @@
+
+import java.util.Arrays;
+
 class problems{
     public static void main(String[] args) {
         problems p = new problems();
         int[] nums = { 1, 2, 3, 4};
-        System.out.println(p.hasDuplicate(nums));
+        //System.out.println(p.hasDuplicate(nums));
+
+        String s = "jar", t = "jam";
+        System.out.println(p.isAnagram(s,t));
     }
 
     public boolean hasDuplicate(int[] nums) {
@@ -20,5 +26,22 @@ class problems{
             }
         }
         return false;    
+    }
+
+    public boolean isAnagram(String s, String t) {
+        char[] chars = s.toCharArray();
+        char[] chars2 = t.toCharArray();
+        Arrays.sort(chars);
+        Arrays.sort(chars2);
+        if(chars.length != chars2.length){
+            return false;
+        }
+        for (int i = 0; i < chars.length ; i++) {
+            if (chars[i] != chars2[i]){
+                return false;
+            }
+        }
+        return true;
+
     }
 }
