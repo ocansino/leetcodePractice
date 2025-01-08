@@ -12,7 +12,10 @@ class problems{
 
         int[] nums = {5,5};
         int target = 10;
-        System.out.println(Arrays.toString(p.twoSum(nums, target)));
+        //System.out.println(Arrays.toString(p.twoSum(nums, target)));
+
+        String[] strs = {"act","pots","tops","cat","stop","hat"};
+        System.out.println(p.groupAnagrams(strs));
 
     }
 
@@ -62,5 +65,31 @@ class problems{
             }
         }
         return ans;
+    }
+
+    public List<List<String>> groupAnagrams(String[] strs) {
+        
+        HashMap<String, List<String>> strMap = new HashMap<>();
+        for (String str : strs) {
+            char[] charArray = str.toCharArray();
+            Arrays.sort(charArray);
+            String sortedS = new String(charArray);
+            //System.out.println(sortedS);
+            
+            if(!strMap.containsKey(sortedS)){
+                
+                strMap.put(sortedS, new ArrayList<>());
+                //System.out.println(strMap);
+                //ans.add(strMap.get(sortedS));
+            }
+            else{
+                strMap.get(sortedS).add(str);
+                //System.out.println(strMap);
+            }
+        
+        }    
+        
+        return new ArrayList<>(strMap.values());
+        
     }
 }
