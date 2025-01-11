@@ -17,9 +17,16 @@ class problems{
         //String[] strs = {"act","pots","tops","cat","stop","hat"};
         //System.out.println(p.groupAnagrams(strs));
 
-        int[] nums = {7,7};
-        int k = 1;
-        System.out.println(Arrays.toString(p.topKFrequent(nums, k)));        
+        //int[] nums = {7,7};
+        //int k = 1;
+        //System.out.println(Arrays.toString(p.topKFrequent(nums, k)));
+
+        List<String> strs = Arrays.asList("neet", "code", "love", "you");        
+        String ans = p.encode(strs);
+        System.out.println(ans);
+        System.out.println(p.decode(ans));
+
+
 
     }
 
@@ -120,5 +127,37 @@ class problems{
         }
 
         return ans;
+    }
+
+    public String encode(List<String> strs) {
+        String Result = new String();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < strs.size(); i++) {
+            int length = strs.get(i).length();
+            stringBuilder.append(length);
+            stringBuilder.append(":");
+            stringBuilder.append(strs.get(i));
+
+        }
+        Result = stringBuilder.toString();
+        return Result;
+    }
+
+    public List<String> decode(String str) {
+        List<String> strs = new ArrayList<>();
+        int i=0;
+        while(i < str.length()){
+            int index = str.indexOf(':', i);
+            int length = Integer.parseInt(str.substring(i, index));
+            String temp = str.substring(index + 1, index + 1 + length);
+            strs.add(temp);
+            i = index + 1 + length;
+
+
+        }
+        
+        
+        
+        return strs;
     }
 }
