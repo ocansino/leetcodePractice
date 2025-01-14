@@ -21,11 +21,13 @@ class problems{
         //int k = 1;
         //System.out.println(Arrays.toString(p.topKFrequent(nums, k)));
 
-        List<String> strs = Arrays.asList("neet", "code", "love", "you");        
-        String ans = p.encode(strs);
-        System.out.println(ans);
-        System.out.println(p.decode(ans));
+        //List<String> strs = Arrays.asList("neet", "code", "love", "you");        
+        //String ans = p.encode(strs);
+        //System.out.println(ans);
+        //System.out.println(p.decode(ans));
 
+        String s = "Was it a car or a cat I saw?";
+        System.out.println(p.isPalindrome(s));
 
 
     }
@@ -159,5 +161,31 @@ class problems{
         
         
         return strs;
+    }
+
+    public boolean isPalindrome(String s) {
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left<right){
+            while(left < right && !Character.isLetterOrDigit(s.charAt(left))){
+                left++;
+                
+            }
+
+            while(left < right && !Character.isLetterOrDigit(s.charAt(right))){
+                right--;
+            }
+            
+            if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
+                    return false;
+            }
+            left++;
+            right--;
+            
+        }
+        return true;
+    
+        
     }
 }
