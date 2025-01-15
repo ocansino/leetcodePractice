@@ -26,8 +26,12 @@ class problems{
         //System.out.println(ans);
         //System.out.println(p.decode(ans));
 
-        String s = "Was it a car or a cat I saw?";
-        System.out.println(p.isPalindrome(s));
+        //String s = "Was it a car or a cat I saw?";
+        //System.out.println(p.isPalindrome(s));
+
+        int[] numbers = {1,2,3,4};
+        int target = 3;
+        System.out.println(Arrays.toString(p.twoSum2(numbers, target)));
 
 
     }
@@ -187,5 +191,26 @@ class problems{
         return true;
     
         
+    }
+
+    public int[] twoSum2(int[] numbers, int target) {
+        int left = 0;
+        int right = numbers.length-1;
+
+        while (left<right){
+            int curSum = numbers[left] + numbers[right];
+            if(curSum > target){
+                right--;
+            }
+            else if(curSum < target){
+                left++;
+            }
+            else{
+                return new int[] {left + 1, right + 1};
+            }
+
+
+        }
+        return new int[0];
     }
 }
