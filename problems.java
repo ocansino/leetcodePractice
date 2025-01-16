@@ -29,9 +29,12 @@ class problems{
         //String s = "Was it a car or a cat I saw?";
         //System.out.println(p.isPalindrome(s));
 
-        int[] numbers = {1,2,3,4};
-        int target = 3;
-        System.out.println(Arrays.toString(p.twoSum2(numbers, target)));
+        //int[] numbers = {1,2,3,4};
+        //int target = 3;
+        //System.out.println(Arrays.toString(p.twoSum2(numbers, target)));
+
+        String s = "([{}])";
+        System.out.println(p.isValid(s));
 
 
     }
@@ -212,5 +215,31 @@ class problems{
 
         }
         return new int[0];
+    }
+
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        char[] stringArr = s.toCharArray();
+        Map<Character, Character> map = new HashMap<>();
+        map.put(')', '(');
+        map.put(']', '[');
+        map.put('}', '{');
+        for (int i = 0; i < stringArr.length; i++) {
+            if(map.containsKey(stringArr[i])){
+                
+                if(!stack.isEmpty() && stack.peek() == map.get(stringArr[i])){
+                    stack.pop();
+                }
+                else{
+                    return false;
+
+                }
+            }
+            else{
+                stack.push(stringArr[i]);
+            }
+        }    
+        return stack.isEmpty();
+    
     }
 }
