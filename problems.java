@@ -36,10 +36,12 @@ class problems{
         //String s = "([{}])";
         //System.out.println(p.isValid(s));
 
-        int[] numbers = {-1,0,2,4,6,8};
-        int target = 3;
-        System.out.println(p.search(numbers, target));
+        //int[] numbers = {-1,0,2,4,6,8};
+        //int target = 3;
+        //System.out.println(p.search(numbers, target));
 
+        int[] prices = {10,8,7,5,2};
+        System.out.println(p.maxProfit(prices));
 
     }
 
@@ -265,6 +267,18 @@ class problems{
         
         
         return -1;
+    }
+
+    public int maxProfit(int[] prices) {
+        int maxP = 0;
+        int minBuy = prices[0];
+    
+        for (int i = 0; i < prices.length; i++) {
+            maxP = Math.max(maxP, prices[i] - minBuy);
+            minBuy = Math.min(minBuy, prices[i]);
+        }
+    
+        return maxP;
     }
 
     
