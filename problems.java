@@ -40,8 +40,11 @@ class problems{
         //int target = 3;
         //System.out.println(p.search(numbers, target));
 
-        int[] prices = {10,8,7,5,2};
-        System.out.println(p.maxProfit(prices));
+        //int[] prices = {10,8,7,5,2};
+        //System.out.println(p.maxProfit(prices));
+
+        
+        
 
     }
 
@@ -281,5 +284,35 @@ class problems{
         return maxP;
     }
 
+    /*public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode next;
+        while (curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+            
+        }
+        return prev;
+
+    }*/
+
+   /*public TreeNode invertTree(TreeNode root) {
+        if(root == null){
+            return null;
+        }
+        TreeNode temp;
+        temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        invertTree(root.left);
+        invertTree(root.right);
+        return root;
+    }*/
+    
+
+    
     
 }
